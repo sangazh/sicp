@@ -1,9 +1,11 @@
+; recursive
 (define (factorial n)
 	((if (= n 1)
 	    1
 	    (* n (factorial (- n 1)))))
   )
 
+; iterative
 (define (factorial n)
   (define (fact-iter product counter max-count)
     (if (> counter max-count)

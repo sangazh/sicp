@@ -11,7 +11,6 @@
 
 ; application order
 
-scm
 ; normal order
 (test 0 (p)
 	(if (= 0 0)

@@ -18,6 +18,6 @@
 (fixed-point (lambda (y) (+ (sin y) (cos y)))
 			1.0)
 
-(define (sqrt-1 x)
+(define (sqrt x)
     (fixed-point (lambda (y) (average y (/ x y)))
            		 1.0))
