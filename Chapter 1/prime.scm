@@ -8,4 +8,5 @@
     (= (remainder b a) 0))
 
 (define (prime? n)
-	(= n (smallest-divisor n)))
+	(= n (smallest-divisor n))
+)
