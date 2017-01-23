@@ -49,3 +49,17 @@
 (print-rat (mul-rat one-half one-third))
 (print-rat (div-rat one-half one-third))
 (print-rat (add-rat one-third one-third))
+
+
+; 2.1.2 Abstraction Barriers
+
+; preferable when not access numerators and denominators a lot.
+(define (make-rat n d) (cons n d))
+
+(define (numer x)
+	(let ((g (gcd n d)))
+		(/ (car x) g)))
+
+(define (denom x)
+	(let ((g (gcd n d)))
+		(/ (cdr x) g)))
