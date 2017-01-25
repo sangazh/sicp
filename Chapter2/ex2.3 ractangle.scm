@@ -15,7 +15,7 @@
 ; p4--------p3
 ; |         l2
 ; p1---l1---p2
-; p1 = left bottom point, p2 = right top point
+; p1 = left bottom point, p3 = right top point
 (define (make-ractangle p1 p3)
 	(cons p1 p3)
 )

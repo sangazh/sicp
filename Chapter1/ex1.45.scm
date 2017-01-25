@@ -13,12 +13,12 @@
 				1.0 ))
 
 ; ------------
-; x^n
-(define (nth x n)
-	(product (lambda (y) x) 1 (lambda (y) (+ y 1)) n)
-)
+; x^n  <---- expt
+;(define (nth x n)
+;	(product (lambda (y) x) 1 (lambda (y) (+ y 1)) n)
+;)
 
 (define (nth-root x n)
-	(fixed-point ((repeated average-damp (floor (sqrt n))) (lambda (y) (/ x (nth y (- n 1))))
+	(fixed-point ((repeated average-damp (floor (sqrt n))) (lambda (y) (/ x (expt y (- n 1))))
 						)
 				1.0 ))
