@@ -11,6 +11,6 @@
 	   (if (= n 0)
 	       b
 	       (fib-iter b (+ a b) (- n 1))))
-	(fib-iter 0 1 n)
+	(fib-iter 1 0 n)
   )
 

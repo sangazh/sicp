@@ -1,8 +1,7 @@
 ; Exercise 2.27
-; need ex2.18
 (define x (list (list 1 2) (list 3 4)))
 
-(reverse x)
+(reverse x) ; need ex2.18
 
 (define (deep-reverse items)
 	(cond ((null? items) nil)
