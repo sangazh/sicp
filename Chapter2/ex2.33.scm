@@ -1,14 +1,14 @@
 ; Exercise 2.33
 (define (map p sequence)
     (accumulate (lambda (x y)
-    					(cons (p x) y)
-    			)
-    			nil
-    			sequence))
+                        (cons (p x) y)
+                )
+                nil
+                sequence))
 
 (map abs (list -10 3.5 -11.6 17))
 (map (lambda (x) (* x x))
-	 (list 1 2 3 4))
+     (list 1 2 3 4))
 
 (define (append seq1 seq2)
     (accumulate cons seq2 seq1 ))
