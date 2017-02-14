@@ -1,3 +1,5 @@
+; 1.2.6 Example: Testing for Primality
+; Searching for divisors
 (define (smallest-divisor n)
     (find-divisor n 2))
 (define (find-divisor n test-divisor)

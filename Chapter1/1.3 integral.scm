@@ -1,14 +1,16 @@
+; 1.3 Formulating Abstrations with Higher-Order Procedures
 (define (cube x) (* x x x))
 
+; 1.3.1 Procedures as Arguments
 (define (sum-integers a b)
-   	(if (> a b)
-   	    0
-   	    (+ a (sum-integers (+ a 1) b))))
+    (if (> a b)
+        0
+        (+ a (sum-integers (+ a 1) b))))
 
 (define (sum-cubes a b)
-  	(if (> a b)
-  	    0
-  	    (+ (cube a) (sum-cubes (+ a 1) b ))))
+    (if (> a b)
+        0
+        (+ (cube a) (sum-cubes (+ a 1) b ))))
 
 (define (pi-sum a b)
    (if (> a b)
@@ -17,30 +19,31 @@
 
 ; abstracted sum
 (define (sum term a next b)
-   	(if (> a b)
-   	    0
-   	    (+ (term a) (sum term (next a) next b))))
+    (if (> a b)
+        0
+        (+ (term a) (sum term (next a) next b))))
 
 ; then
 (define (identity x) x)
 (define (inc n) (+ n 1))
 (define (sum-integers a b)
-	(sum identity a inc b))
+  (sum identity a inc b))
 
 (define (sum-cubes a b)
-	(sum cube a inc b))
+  (sum cube a inc b))
 
 (define (pi-sum a b)
-	(define (pi-term a)
-	   (/ 1.0 (* a (+ a 2))))
-	(define (pi-next a)
-	   (+ a 4))
-   	(sum pi-term a pi-next b))
+  (define (pi-term a)
+     (/ 1.0 (* a (+ a 2))))
+  (define (pi-next a)
+     (+ a 4))
+    (sum pi-term a pi-next b))
 
 (define (integral f a b dx)
-  	(define (add-dx x) (+ x dx))
-  	(* (sum f (+ a (/ dx 2.0)) add-dx b) dx))
+    (define (add-dx x) (+ x dx))
+    (* (sum f (+ a (/ dx 2.0)) add-dx b) dx))
 
+; 1.3.2 Constructing Procedures
 ; lambda
 
 (define (pi-sum a b)

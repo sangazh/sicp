@@ -12,6 +12,6 @@
     (make-vect (- (xcor-vect vect1) (xcor-vect vect2))
                (- (ycor-vect vect1) (ycor-vect vect2))))
 
-(define (scale-vect vect factor)
+(define (scale-vect factor vect)
     (make-vect (* (xcor-vect vect) factor)
                (* (ycor-vect vect) factor)))

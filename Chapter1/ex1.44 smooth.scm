@@ -1,12 +1,12 @@
 ; Exercise 1.44
 (define (smooth f)
-	(lambda (x) (/ (+ (f x)
-						(f (- x dx))
-						(f (+ x dx)))
-					3)))
+    (lambda (x) (/ (+ (f x)
+                      (f (- x dx))
+                      (f (+ x dx)))
+                   3)))
 
 (define (n-fold-smooth n)
-	(repeat smooth n))
+    (repeat smooth n))
 
 (((n-fold-smooth 2) square) 10)
 

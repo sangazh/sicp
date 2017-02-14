@@ -3,7 +3,7 @@
     (find-divisor n 2))
 (define (find-divisor-fast n test-divisor)
     (cond ((> (square test-divisor) n) n)
-    	((divides? test-divisor n) test-divisor)
+        ((divides? test-divisor n) test-divisor)
         (else (find-divisor n (next-divisor test-divisor)))) )
 (define (next-divisor n)
     (if (= n 2)
@@ -13,5 +13,5 @@
     (= (remainder b a) 0))
 
 (define (prime? n)
-	(= n (smallest-divisor n))
+    (= n (smallest-divisor n))
 )

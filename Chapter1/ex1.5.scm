@@ -13,8 +13,8 @@
 
 ; normal order
 (test 0 (p)
-	(if (= 0 0)
-	    0
-	    (p)
-	)
+    (if (= 0 0)
+        0
+        (p)
+    )
 )

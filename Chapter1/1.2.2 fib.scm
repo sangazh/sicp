@@ -1,3 +1,4 @@
+; 1.2.2 Tree Recursion
 ; recursive
 (define (fib n)
     (cond ((< n 2) n)

@@ -16,13 +16,3 @@
                                         (edge2-frame frame))))))
 
 ((frame-coord-map a-frame) (make-vect 0 0))
-
-(define a-frame
-    (make-frame (make-vect 0 0)
-                (make-vect 0 2)
-                (make-vect 1 3)))
-
-(frame-origin a-frame)
-(frame-edge1 a-frame)
-(frame-edge2 a-frame)
-

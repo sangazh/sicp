@@ -4,7 +4,7 @@
     (cons vect1 vect2))
 
 (define (start-segment segment) (car segment))
-(define (end-segment segment) (cadr segment))
+(define (end-segment segment) (cdr segment))
 
 (define seg1 (make-segment
                (make-vect 0 0)

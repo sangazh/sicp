@@ -1,3 +1,4 @@
+; ex 1.22
 (define (timed-prime-test n)
     (newline)
     (display n)
