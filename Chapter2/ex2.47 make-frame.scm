@@ -17,7 +17,7 @@
 
 (define a-frame (make-frame (make-vect 0 0)
                             (make-vect 0 2)
-                            (make-vect 5 2)
+                            (make-vect 5 0)
 ))
 
 (origin-frame a-frame)
