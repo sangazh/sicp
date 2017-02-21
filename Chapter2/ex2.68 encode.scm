@@ -1,0 +1,41 @@
+; Exercise 2.68
+
+(define (encode message tree)
+    (if (null? message)
+        '()
+        (append (encode-symbol (car message) tree)
+                (encode (cdr message) tree))))
+
+(define (encode-symbol symbol tree)
+    (if (null? symbol)
+        '()
+        (let ((left (left-branch tree))
+              (right (right-branch tree)))
+            (cond ((and (leaf? left)
+                        (eq? (symbol-leaf left) symbol))
+                    (list 0))
+                  ((and (not (leaf? left))
+                        (in-set? symbol (symbols left)))
+                    (cons '0 (encode-symbol symbol left)))
+                  ((and (leaf? right)
+                        (eq? (symbol-leaf right) symbol))
+                    (list 1))
+                  ((and (not (leaf? right))
+                        (in-set? symbol (symbols right)))
+                    (cons '1 (encode-symbol symbol right)))
+                  (else (error "bad symbol -- ENCODE-SYMBOL" symbol)))
+            ))
+)
+
+(define (in-set? item x)
+    (cond ((null? x) false)
+          ((eq? item (car x)) true)
+          (else in-set? item (cdr x))))
+
+(encode-symbol 'A sample-tree)
+(encode-symbol 'B sample-tree)
+(encode-symbol 'D sample-tree)
+(encode-symbol 'C sample-tree)
+
+(encode '(a d a b b c a) sample-tree)
+
