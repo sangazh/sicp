@@ -30,7 +30,7 @@
 (define (in-set? item x)
     (cond ((null? x) false)
           ((eq? item (car x)) true)
-          (else in-set? item (cdr x))))
+          (else (in-set? item (cdr x)))))
 
 (encode-symbol 'A sample-tree)
 (encode-symbol 'B sample-tree)
