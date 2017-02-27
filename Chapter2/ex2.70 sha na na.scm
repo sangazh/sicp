@@ -2,18 +2,18 @@
 ; depends on encode (ex2.68) and generate-huffman-tree (ex2.69)
 
 (define song-pair
-	'((A 2) (NA 16) (BOOM 1) (SHA 3) (GET 2) (YIP 9) (JOB 2) (WAH 1)))
+    '((A 2) (NA 16) (BOOM 1) (SHA 3) (GET 2) (YIP 9) (JOB 2) (WAH 1)))
 
 (make-leaf-set song-pair)
 (define song-tree (generate-huffman-tree song-pair))
 
 (define song-lyric
-	'(GET A JOB
-	  SHA NA NA NA NA NA NA NA NA
-	  GET A JOB
-	  SHA NA NA NA NA NA NA NA NA
-	  WAH YIP YIP YIP YIP YIP YIP YIP YIP YIP
-	  SHA BOOM))
+    '(GET A JOB
+      SHA NA NA NA NA NA NA NA NA
+      GET A JOB
+      SHA NA NA NA NA NA NA NA NA
+      WAH YIP YIP YIP YIP YIP YIP YIP YIP YIP
+      SHA BOOM))
 
 (define encode-song (encode song-lyric song-tree))
 (encode-song)

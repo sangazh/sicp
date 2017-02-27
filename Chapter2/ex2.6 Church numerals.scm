@@ -3,9 +3,9 @@
 (define zero (lambda (f) (lambda (x) x)))
 (define (add-1 n)
   (lambda (f)
-  		  (lambda (x)
-  		  		  (f ((n f) x))
-  		  )))
+          (lambda (x)
+                  (f ((n f) x))
+          )))
 
 (define one (add-1 zero))
 (define two (add-1 one))
@@ -39,7 +39,7 @@
 
 ; ------- + ------ ref: https://en.wikipedia.org/wiki/Church_encoding
 (define (church-add m n)
-	(lambda (f) (lambda (x) ((m f) (( f) x)) ))
+    (lambda (f) (lambda (x) ((m f) (( f) x)) ))
 )
 
  (((church-add one two) inc) 5)
