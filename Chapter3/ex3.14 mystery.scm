@@ -4,9 +4,9 @@
         (if (null? x)
             y
             (let ((temp (cdr x)))
-            	(set-cdr! x y)
-            	(loop temp x))))
-	(loop x '()))
+                (set-cdr! x y)
+                (loop temp x))))
+    (loop x '()))
 
 (define v (list 'a 'b 'c 'd))
 v

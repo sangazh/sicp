@@ -35,72 +35,72 @@
 
 (define (make-deque)
     (let ((front-ptr '())
-    	  (rear-ptr '()))
+          (rear-ptr '()))
 
-	    ; helper
-	    (define (set-front-ptr! item) (set! front-ptr item))
-	    (define (set-rear-ptr! item) (set! rear-ptr item))
+        ; helper
+        (define (set-front-ptr! item) (set! front-ptr item))
+        (define (set-rear-ptr! item) (set! rear-ptr item))
 
-    	(define (empty-deque?) (null? front-ptr))
+        (define (empty-deque?) (null? front-ptr))
 
-		;selectors
-    	(define (front-deque)
-    	  (if (empty-deque?)
-    	      (error "FRONT called with an empty queue")
-    	      (car front-ptr)))
+        ;selectors
+        (define (front-deque)
+          (if (empty-deque?)
+              (error "FRONT called with an empty queue")
+              (car front-ptr)))
 
-    	(define (rear-deque)
-    	  (if (empty-deque?)
-    	      (error "REAR called with an empty queue")
-    	      (car rear-ptr)))
+        (define (rear-deque)
+          (if (empty-deque?)
+              (error "REAR called with an empty queue")
+              (car rear-ptr)))
 
-    	; mutators
-    	(define (rear-insert-deque! item)
-    		(let ((new-pair (make-element item)))
-    			(cond ((empty-deque?)
-    					(set-front-ptr! new-pair)
-    					(set-rear-ptr! new-pair))
-    			      (else
-               			(set-next! rear-ptr new-pair)
-               			(set-previous! new-pair rear-ptr)
-    			      	(set-rear-ptr! new-pair)
+        ; mutators
+        (define (rear-insert-deque! item)
+            (let ((new-pair (make-element item)))
+                (cond ((empty-deque?)
+                        (set-front-ptr! new-pair)
+                        (set-rear-ptr! new-pair))
+                      (else
+                        (set-next! rear-ptr new-pair)
+                        (set-previous! new-pair rear-ptr)
+                        (set-rear-ptr! new-pair)
 
-              ;    		(set-next! (previous-element rear-ptr) new-pair)
+              ;         (set-next! (previous-element rear-ptr) new-pair)
                     ))
-    			(print-deque)))
+                (print-deque)))
 
-    	(define (front-insert-deque! item)
-    		(let ((new-pair (make-element item)))
-    			(cond ((empty-deque?)
-    					(set-front-ptr! new-pair)
-    					(set-rear-ptr! new-pair))
-    			      (else
-    			      	(set-next! new-pair front-ptr)
-    			      	(set-front-ptr! new-pair)
-    			      	(set-previous! (next-element front-ptr) new-pair)
+        (define (front-insert-deque! item)
+            (let ((new-pair (make-element item)))
+                (cond ((empty-deque?)
+                        (set-front-ptr! new-pair)
+                        (set-rear-ptr! new-pair))
+                      (else
+                        (set-next! new-pair front-ptr)
+                        (set-front-ptr! new-pair)
+                        (set-previous! (next-element front-ptr) new-pair)
               ))
-    		(print-deque)))
+            (print-deque)))
 
-    	(define (front-delete-deque!)
-    	  (cond ((empty-deque?)
-    	  			(error "DELETE! called with empty queue"))
-    	        (else
-    	        	;(set-front-ptr! (cdr front-ptr))))
-       				(set-front-ptr! (next-element front-ptr))
-           			(set-previous! front-ptr '())))
-    	  (print-deque))
+        (define (front-delete-deque!)
+          (cond ((empty-deque?)
+                    (error "DELETE! called with empty queue"))
+                (else
+                    ;(set-front-ptr! (cdr front-ptr))))
+                    (set-front-ptr! (next-element front-ptr))
+                    (set-previous! front-ptr '())))
+          (print-deque))
 
-    	; cannot implement to O(1), need to add a new pointer
-    	(define (rear-delete-deque!)
-    	  (cond ((empty-deque?)
-    	  			(error "DELETE! called with empty queue"))
-    	        (else
-               		(set-rear-ptr! (previous-element rear-ptr))
-               		(set-next! rear-ptr '())))
-    	  (print-deque)
-    	)
+        ; cannot implement to O(1), need to add a new pointer
+        (define (rear-delete-deque!)
+          (cond ((empty-deque?)
+                    (error "DELETE! called with empty queue"))
+                (else
+                    (set-rear-ptr! (previous-element rear-ptr))
+                    (set-next! rear-ptr '())))
+          (print-deque)
+        )
 
-      	(define (print-deque)
+        (define (print-deque)
             (define (print-element e)
                 (if (eq? false e)
                     '()
@@ -108,17 +108,17 @@
             (print-element front-ptr)
         )
 
-    	(define (dispatch m)
-    		(cond ((eq? m 'empty-deque?) (empty-deque?))
-    			  ((eq? m 'front-deque) (front-deque))
-    			  ((eq? m 'rear-deque) (rear-deque))
-    			  ((eq? m 'front-insert-deque!) front-insert-deque!)
-    			  ((eq? m 'rear-insert-deque!) rear-insert-deque!)
-    			  ((eq? m 'front-delete-deque!) (front-delete-deque!))
-    			  ((eq? m 'rear-delete-deque!) (rear-delete-deque!))
-    			  ((eq? m 'print-deque) (print-deque))
-    		      ))
-    	dispatch))
+        (define (dispatch m)
+            (cond ((eq? m 'empty-deque?) (empty-deque?))
+                  ((eq? m 'front-deque) (front-deque))
+                  ((eq? m 'rear-deque) (rear-deque))
+                  ((eq? m 'front-insert-deque!) front-insert-deque!)
+                  ((eq? m 'rear-insert-deque!) rear-insert-deque!)
+                  ((eq? m 'front-delete-deque!) (front-delete-deque!))
+                  ((eq? m 'rear-delete-deque!) (rear-delete-deque!))
+                  ((eq? m 'print-deque) (print-deque))
+                  ))
+        dispatch))
 
 ; test
 (define q (make-deque))

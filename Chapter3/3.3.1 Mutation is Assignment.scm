@@ -5,9 +5,9 @@
     (define (set-y! v) (set! y v))
     (define (dispatch m)
         (cond ((eq? m 'car) x)
-        	  ((eq? m 'cdr) y)
-        	  ((eq? m 'set-car!) set-x!)
-        	  ((eq? m 'set-cdr!) set-y!)
+              ((eq? m 'cdr) y)
+              ((eq? m 'set-car!) set-x!)
+              ((eq? m 'set-cdr!) set-y!)
               (else (error "Undefined operation -- CONS" m))))
     dispatch)
 

@@ -1,20 +1,20 @@
 ; Exercise 3.7
 ; depends on ex3.3 make-account
 (define (make-joint account account-password new-password)
-	(define (authenticate psw m)
-		(if (number? ((account account-password 'withdraw) 0))
-		    (check-new-password psw m)
-		    (error "Incorrect Account password")))
+    (define (authenticate psw m)
+        (if (number? ((account account-password 'withdraw) 0))
+            (check-new-password psw m)
+            (error "Incorrect Account password")))
 
-	(define (check-new-password psw m)
-		(if (eq? psw new-password)
-		    (dispatch m)
-		    (error "Incorrect Joint Acount password")))
+    (define (check-new-password psw m)
+        (if (eq? psw new-password)
+            (dispatch m)
+            (error "Incorrect Joint Acount password")))
 
-	(define (dispatch m)
-		(account account-password m)
-	)
-	authenticate
+    (define (dispatch m)
+        (account account-password m)
+    )
+    authenticate
   )
 
 (define peter-acc (make-account 100 'open-sesame))
