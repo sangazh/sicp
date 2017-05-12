@@ -86,7 +86,7 @@ t
         (define (dispatch m)
             (cond ((eq? m 'lookup-proc) lookup)
                   ((eq? m 'insert-proc!) insert!)
-                  (else (error "Unkonw operation -- TABLE" m))))
+                  (else (error "Unknown operation -- TABLE" m))))
         dispatch))
 
 (define operation-table (make-table))

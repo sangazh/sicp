@@ -41,7 +41,7 @@
                     (cdr record)
                     false)))
 
-    	(define (insert! key value)
+        (define (insert! key value)
             (let ((record (assoc key (cdr local-table))))
                 (if record
                     (set-cdr! record value)
@@ -50,12 +50,12 @@
                     )
                 'ok))
 
-    	(define (dispatch m)
-    	    (cond ((eq? m 'lookup-proc) lookup)
-               	  ((eq? m 'insert-proc!) insert!)
+        (define (dispatch m)
+            (cond ((eq? m 'lookup-proc) lookup)
+                  ((eq? m 'insert-proc!) insert!)
                   ((eq? m 'print) local-table)
-    	          (else (error "Unkonw operation -- TABLE" m))))
-     	dispatch))
+                  (else (error "Unkonw operation -- TABLE" m))))
+        dispatch))
 
 (define operation-table (make-table = > < ))
 (define get (operation-table 'lookup-proc))

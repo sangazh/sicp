@@ -15,14 +15,14 @@
 
 ; b
 (define (branch-weight branch)
-	(cond ((pair? (branch-structure branch)) (total-weight (branch-structure branch)))
-		     (else (branch-structure branch)))
+    (cond ((pair? (branch-structure branch)) (total-weight (branch-structure branch)))
+             (else (branch-structure branch)))
 )
 
 (define (total-weight mobile)
-	(+ (branch-weight (left-branch mobile))
-		(branch-weight (right-branch mobile))
-	))
+    (+ (branch-weight (left-branch mobile))
+        (branch-weight (right-branch mobile))
+    ))
 
 ; test
 (define br-sub-r-l (make-branch 5 3))
@@ -36,10 +36,10 @@
 
 ; c
 (define (branch-torque branch)
-	(* (branch-length branch) (branch-weight branch) ) )
+    (* (branch-length branch) (branch-weight branch) ) )
 
 (define (balanced? mobile)
-	(= (branch-torque (left-branch mobile)) (branch-torque (right-branch mobile)))
+    (= (branch-torque (left-branch mobile)) (branch-torque (right-branch mobile)))
 )
 
 (balanced? top-mobile)
