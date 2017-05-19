@@ -45,7 +45,7 @@
   (define (dispatch m)
     (cond ((eq? m 'withdraw) withdraw)
           ((eq? m 'deposit) deposit)
-          (else (error "Unknown requrest -- make-account" m))))
+          (else (error "Unknown request -- MAKE-ACCOUNT" m))))
   dispatch
 )
 
